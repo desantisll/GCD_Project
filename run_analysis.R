@@ -1,8 +1,7 @@
 #G&C project
-
 library(plyr)
 
-#load/merge test + train subjectID data containin geach data points Subject ID
+#load/merge test + train subjectID data containing geach data points Subject ID
 subject_test = read.table("UCI HAR Dataset/test/subject_test.txt")
 subject_train = read.table("UCI HAR Dataset/train/subject_train.txt")
 subjectAll <- rbind(subject_test, subject_train)
@@ -14,9 +13,9 @@ xTrain = read.table("UCI HAR Dataset/train/X_train.txt")
 xAll <- rbind(xTest, xTrain)
 
 #subset xAll into just specified features (mean and std)
-featuresAll <- read.table("UCI HAR Dataset/features.txt", col.names=c("featureId", "featureLabel"))
+featuresAll <- read.table("UCI HAR Dataset/features.txt", col.names = c("featureId", "featureLabel"))
 featuresOnly <- grep("-mean\\(\\)|-std\\(\\)", featuresAll$featureLabel)
-#subset xAll (561) into just shortFeatures (66)
+#subset xAll (561) by just featuresOnly (66)
 xAll <- xAll[, featuresOnly]
 ##replace featureID column names in xAll with feature Label
 names(xAll)<-featuresAll[featuresOnly,2]
@@ -48,7 +47,6 @@ names(final) = gsub('Freq\\.', 'frequency', names(final))
 names(final) = gsub('Acc', 'acceleration', names(final))
 names(final) = gsub('Mag', 'magnitude', names(final))
 
-##create tidy data set with the average of each feature for each subject and activity .
+##create tidy data set with the average of each feature for each subject and activity.
 finalTidy <- ddply(final, c("subjectId", "activity"), numcolwise(mean))
 write.table(finalTidy, file = "final_tidy_data", row.name = FALSE)
-

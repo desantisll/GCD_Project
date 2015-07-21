@@ -4,7 +4,6 @@
 
 ##Variables
 ---------
-
 - subjectId: 1 to 30 each representing a participant in the study
 - activity: the activity that the subject was doing at the time of the measurement
 - tBodyAcc-mean-X        
@@ -74,7 +73,29 @@
 - fBodyBodyGyroJerkMag-mean
 - fBodyBodyGyroJerkMag-std
 
-##More Information on raw variables
+##Raw Data
+The raw data was sourced from the UCI Machine Learning Repository and A full description is available at the site where the data was obtained:
+
+http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
+
+This data consisted of 10299 smartphone sensor measurements split into two partitions, train and test several pieces (x, y, subject, features and activites)
+
+Dataset x contained each observations measurements unnamed/labeled
+Dataset y contained each observations activityID unnamed/labeled
+Dataset subject contained each observations subject ID
+Dataset features contained descriptive names of each measurement (eg. "tBodyAcceleration-mean()-X)
+Dataset activities contained descriptive activity names (eg. SITTING, WALIKING)
+
+##How the data was cleaned
+subject train and test data and combined into subjectAll
+x train and x test data combinde into xAll
+pair down and subsets xAll into just mean and std variables using features dataset
+y test and y train and merged into yAll and label/named using activities dataset
+joined subjectAll, xAll and yAll data frames into final
+named data set with descriptive names and replaced abbreviations.
+
+
+###More Information on raw variables
 The features selected for this database come from the accelerometer and gyroscope 3-axial raw signals tAcc-XYZ and tGyro-XYZ. These time domain signals (prefix 't' to denote time) were captured at a constant rate of 50 Hz. Then they were filtered using a median filter and a 3rd order low pass Butterworth filter with a corner frequency of 20 Hz to remove noise. Similarly, the acceleration signal was then separated into body and gravity acceleration signals (tBodyAcc-XYZ and tGravityAcc-XYZ) using another low pass Butterworth filter with a corner frequency of 0.3 Hz. 
 
 Subsequently, the body linear acceleration and angular velocity were derived in time to obtain Jerk signals (tBodyAccJerk-XYZ and tBodyGyroJerk-XYZ). Also the magnitude of these three-dimensional signals were calculated using the Euclidean norm (tBodyAccMag, tGravityAccMag, tBodyAccJerkMag, tBodyGyroMag, tBodyGyroJerkMag). 
