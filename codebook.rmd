@@ -2,28 +2,36 @@
 #CodeBook
 --
 
-##Variables
+##Quick description of how the data was proccessed (see README for more)
+subject train and test data and combined into subjectAll
+x train and x test data combinde into xAll
+pair down and subsets xAll into just mean and std variables using features dataset
+y test and y train and merged into yAll and label/named using activities dataset
+joined subjectAll, xAll and yAll data frames into final
+named data set with descriptive names and replaced abbreviations.
+
+##Variables (modified from original)
 ---------
 - subjectId: 1 to 30 each representing a participant in the study
 - activity: the activity that the subject was doing at the time of the measurement
-- tBodyAcc-mean-X        
-- tBodyAcc-mean-Y
-- tBodyAcc-mean-Z
-- tBodyAcc-std-X
-- tBodyAcc-std-Y
-- tBodyAcc-std-Z
-- tGravityAcc-mean-X
-- tGravityAcc-mean-Y
-- tGravityAcc-mean-Z
-- tGravityAcc-std-X
-- tGravityAcc-std-Y
-- tGravityAcc-std-Z
-- tBodyAccJerk-mean-X
-- tBodyAccJerk-mean-Y
-- tBodyAccJerk-mean-Z
-- tBodyAccJerk-std-X
-- tBodyAccJerk-std-Y
-- tBodyAccJerk-std-Z
+- tBodyacceleration-mean-X        
+- tBodyacceleration-mean-Y
+- tBodyacceleration-mean-Z
+- tBodyacceleration-std-X
+- tBodyacceleration-std-Y
+- tBodyacceleration-std-Z
+- tGravityacceleration-mean-X
+- tGravityacceleration-mean-Y
+- tGravityacceleration-mean-Z
+- tGravityacceleration-std-X
+- tGravityacceleration-std-Y
+- tGravityacceleration-std-Z
+- tBodyaccelerationJerk-mean-X
+- tBodyaccelerationJerk-mean-Y
+- tBodyaccelerationJerk-mean-Z
+- tBodyaccelerationJerk-std-X
+- tBodyaccelerationJerk-std-Y
+- tBodyaccelerationJerk-std-Z
 - tBodyGyro-mean-X
 - tBodyGyro-mean-Y
 - tBodyGyro-mean-Z
@@ -36,44 +44,44 @@
 - tBodyGyroJerk-std-X
 - tBodyGyroJerk-std-Y
 - tBodyGyroJerk-std-Z
-- tBodyAccMag-mean
-- tBodyAccMag-std
-- tGravityAccMag-mean
-- tGravityAccMag-std
-- tBodyAccJerkMag-mean
-- tBodyAccJerkMag-std
-- tBodyGyroMag-mean
-- tBodyGyroMag-std
-- tBodyGyroJerkMag-mean
-- tBodyGyroJerkMag-std
-- fBodyAcc-mean-X
-- fBodyAcc-mean-Y
-- fBodyAcc-mean-Z
-- fBodyAcc-std-X
-- fBodyAcc-std-Y
-- fBodyAcc-std-Z
-- fBodyAccJerk-mean-X
-- fBodyAccJerk-mean-Y
-- fBodyAccJerk-mean-Z
-- fBodyAccJerk-std-X
-- fBodyAccJerk-std-Y
-- fBodyAccJerk-std-Z
+- tBodyaccelerationmagnitude-mean
+- tBodyaccelerationmagnitude-std
+- tGravityaccelerationmagnitude-mean
+- tGravityaccelerationmagnitude-std
+- tBodyaccelerationJerkmagnitude-mean
+- tBodyaccelerationJerkmagnitude-std
+- tBodyGyromagnitude-mean
+- tBodyGyromagnitude-std
+- tBodyGyroJerkmagnitude-mean
+- tBodyGyroJerkmagnitude-std
+- fBodyacceleration-mean-X
+- fBodyacceleration-mean-Y
+- fBodyacceleration-mean-Z
+- fBodyacceleration-std-X
+- fBodyacceleration-std-Y
+- fBodyacceleration-std-Z
+- fBodyaccelerationJerk-mean-X
+- fBodyaccelerationJerk-mean-Y
+- fBodyaccelerationJerk-mean-Z
+- fBodyaccelerationJerk-std-X
+- fBodyaccelerationJerk-std-Y
+- fBodyaccelerationJerk-std-Z
 - fBodyGyro-mean-X
 - fBodyGyro-mean-Y
 - fBodyGyro-mean-Z
 - fBodyGyro-std-X
 - fBodyGyro-std-Y
 - fBodyGyro-std-Z
-- fBodyAccMag-mean
-- fBodyAccMag-std
-- fBodyBodyAccJerkMag-mean
-- fBodyBodyAccJerkMag-std
-- fBodyBodyGyroMag-mean
-- fBodyBodyGyroMag-std
-- fBodyBodyGyroJerkMag-mean
-- fBodyBodyGyroJerkMag-std
+- fBodyaccelerationmagnitude-mean
+- fBodyaccelerationmagnitude-std
+- fBodyBodyaccelerationJerkmagnitude-mean
+- fBodyBodyaccelerationJerkmagnitude-std
+- fBodyBodyGyromagnitude-mean
+- fBodyBodyGyromagnitude-std
+- fBodyBodyGyroJerkmagnitude-mean
+- fBodyBodyGyroJerkmagnitude-std
 
-##Raw Data
+##About the Raw Data
 The raw data was sourced from the UCI Machine Learning Repository and A full description is available at the site where the data was obtained:
 
 http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
@@ -86,16 +94,8 @@ Dataset subject contained each observations subject ID
 Dataset features contained descriptive names of each measurement (eg. "tBodyAcceleration-mean()-X)
 Dataset activities contained descriptive activity names (eg. SITTING, WALIKING)
 
-##How the data was cleaned
-subject train and test data and combined into subjectAll
-x train and x test data combinde into xAll
-pair down and subsets xAll into just mean and std variables using features dataset
-y test and y train and merged into yAll and label/named using activities dataset
-joined subjectAll, xAll and yAll data frames into final
-named data set with descriptive names and replaced abbreviations.
 
-
-###More Information on raw variables
+##Information about original variables
 The features selected for this database come from the accelerometer and gyroscope 3-axial raw signals tAcc-XYZ and tGyro-XYZ. These time domain signals (prefix 't' to denote time) were captured at a constant rate of 50 Hz. Then they were filtered using a median filter and a 3rd order low pass Butterworth filter with a corner frequency of 20 Hz to remove noise. Similarly, the acceleration signal was then separated into body and gravity acceleration signals (tBodyAcc-XYZ and tGravityAcc-XYZ) using another low pass Butterworth filter with a corner frequency of 0.3 Hz. 
 
 Subsequently, the body linear acceleration and angular velocity were derived in time to obtain Jerk signals (tBodyAccJerk-XYZ and tBodyGyroJerk-XYZ). Also the magnitude of these three-dimensional signals were calculated using the Euclidean norm (tBodyAccMag, tGravityAccMag, tBodyAccJerkMag, tBodyGyroMag, tBodyGyroJerkMag). 

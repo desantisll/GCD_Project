@@ -1,7 +1,8 @@
-#G&C project
+#Getting and Cleaning Data project
 library(plyr)
+library(dplyr)
 
-#load/merge test + train subjectID data containing geach data points Subject ID
+#load and merge test + train subjectID data containing geach data points Subject ID
 subject_test = read.table("UCI HAR Dataset/test/subject_test.txt")
 subject_train = read.table("UCI HAR Dataset/train/subject_train.txt")
 subjectAll <- rbind(subject_test, subject_train)
@@ -20,14 +21,14 @@ xAll <- xAll[, featuresOnly]
 ##replace featureID column names in xAll with feature Label
 names(xAll)<-featuresAll[featuresOnly,2]
 
-##xAll now containes every subjects x/y/x info fall for the 66 specified mean/std features
+##xAll now containes every subjects x/y/z info fall for the 66 specified mean/std features
 
 #merge ytest and ytrain into yfull with each observations activity ID
 yTest = read.table("UCI HAR Dataset/test/Y_test.txt")
 yTrain = read.table("UCI HAR Dataset/train/Y_train.txt")
 yAll <- rbind(yTest, yTrain)
 
-#load activities (walk sit...) name columns and get rid of underscores
+#load activities (walk sit...), name columns and get rid of underscores
 activities <- read.table("UCI HAR Dataset/activity_labels.txt", col.names=c("activityId", "activityLabel"))
 activities$activityLabel <- gsub("_", "", as.character(activities$activityLabel)) 
 
@@ -42,8 +43,6 @@ names(yAll) = "activity"
 final <- cbind(subjectAll, yAll, xAll)
 
 ##get rid of confusing abbreviations in column names with gsub()
-names(final) = gsub('Freq$', 'frequency', names(final))
-names(final) = gsub('Freq\\.', 'frequency', names(final))
 names(final) = gsub('Acc', 'acceleration', names(final))
 names(final) = gsub('Mag', 'magnitude', names(final))
 
