@@ -4,10 +4,15 @@
 
 ##Quick description of how the data was proccessed (see README for more)
 subject train and test data and combined into subjectAll
+
 x train and x test data combinde into xAll
+
 pair down and subsets xAll into just mean and std variables using features dataset
+
 y test and y train and merged into yAll and label/named using activities dataset
+
 joined subjectAll, xAll and yAll data frames into final
+
 named data set with descriptive names and replaced abbreviations.
 
 ##Variables (modified from original)
