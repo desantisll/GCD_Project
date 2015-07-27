@@ -3,19 +3,14 @@
 --
 
 ##Quick description of how the data was proccessed (see README for more)
-subject train and test data and combined into subjectAll
 
-x train and x test data combinde into xAll
+1) subject train and test data and combined into subjectAll
+2) xtrain and xtest data combinde into xAll then paired down into just mean and std variables using features dataset
+3) y test and y train and merged into yAll and labeled/named using activities dataset
+4) joined subjectAll, xAll and yAll data frames into final
+5. named data set with descriptive names and replaced abbreviations.
 
-pair down and subsets xAll into just mean and std variables using features dataset
-
-y test and y train and merged into yAll and label/named using activities dataset
-
-joined subjectAll, xAll and yAll data frames into final
-
-named data set with descriptive names and replaced abbreviations.
-
-##Variables (modified from original)
+##Variables in new tidy dataset (modified from original)
 ---------
 - subjectId: 1 to 30 each representing a participant in the study
 - activity: the activity that the subject was doing at the time of the measurement
